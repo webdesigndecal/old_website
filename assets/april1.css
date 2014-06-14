@@ -1,0 +1,77 @@
+#viewport img {
+    display: none;
+}
+#assignment {
+    position: absolute;
+    background: #381279;
+    color: #987138;
+    position: fixed;
+    top: 50%;
+    font-size: 48px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Comic Sans MS';
+    border: 20px dotted #094821;
+}
+#cover_menu {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: #1abc9c;
+    width: 150px;
+    height: 150px;
+    font-size: 24px;
+    font-weight: 700;
+}
+#cover_title {
+    font-size: 24px;
+}
+#cover_subtitle {
+    font-style: italic;
+    text-decoration: line-through;
+}
+#cover_action {
+    font-size: 5px;
+    color: #1abc9c;
+}
+#nav {
+    display: none;
+}
+.about_main_hero {
+    background: #5a4fcf;
+    color: #de6868;
+    font-size: 144px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.about_main_caption {
+    font-size: 24px;
+    font-weight: 700;
+    width: 640px;
+    position: absolute;
+    opacity: 0.2;
+}
+.about_main_hero strong {
+    font-size: 240px;
+    text-decoration: underline
+}
+.about_main_description {
+    color: #819237;
+    font-family: 'Comic Sans MS';
+}
+#about_logistics {
+    display: none;
+}
+#about_schedule {
+    display: none;
+}
+.about_instructors_name {
+    font-size: 480px;
+    font-family: fantasy;
+}
+#about_footer {
+    background: black;
+    color: #757c78;
+    padding: 24px;
+    float: left;
+}

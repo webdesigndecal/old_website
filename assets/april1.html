@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="april1.css" />
+	<title>WEB DESIGN DECAL</title>
+</head>
+<body>
+<script type="text/javascript">
+
+/******************************************
+* Snow Effect Script- By Altan d.o.o. (http://www.altan.hr/snow/index.html)
+* Visit Dynamic Drive DHTML code library (http://www.dynamicdrive.com/) for full source code
+* Last updated Nov 9th, 05' by DD. This notice must stay intact for use
+******************************************/
+  
+  //Configure below to change URL path to the snow image
+  var snowsrc="snow.gif"
+  // Configure below to change number of snow to render
+  var no = 10;
+  // Configure whether snow should disappear after x seconds (0=never):
+  var hidesnowtime = 0;
+  // Configure how much snow should drop down before fading ("windowheight" or "pageheight")
+  var snowdistance = "pageheight";
+
+///////////Stop Config//////////////////////////////////
+
+  var ie4up = (document.all) ? 1 : 0;
+  var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+
+	function iecompattest(){
+	return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+	}
+
+  var dx, xp, yp;    // coordinate and position variables
+  var am, stx, sty;  // amplitude and step variables
+  var i, doc_width = 800, doc_height = 600; 
+  
+  if (ns6up) {
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
+  } else if (ie4up) {
+    doc_width = iecompattest().clientWidth;
+    doc_height = iecompattest().clientHeight;
+  }
+
+  dx = new Array();
+  xp = new Array();
+  yp = new Array();
+  am = new Array();
+  stx = new Array();
+  sty = new Array();
+  snowsrc=(snowsrc.indexOf("dynamicdrive.com")!=-1)? "snow.gif" : snowsrc
+  for (i = 0; i < no; ++ i) {  
+    dx[i] = 0;                        // set coordinate variables
+    xp[i] = Math.random()*(doc_width-50);  // set position variables
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;         // set amplitude variables
+    stx[i] = 0.02 + Math.random()/10; // set step variables
+    sty[i] = 0.7 + Math.random();     // set step variables
+		if (ie4up||ns6up) {
+      if (i == 0) {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+      } else {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+      }
+    }
+  }
+
+  function snowIE_NS6() {  // IE and NS6 main animation function
+    doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+		doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+    for (i = 0; i < no; ++ i) {  // iterate for every dot
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+      }
+      dx[i] += stx[i];
+      document.getElementById("dot"+i).style.top=yp[i]+"px";
+      document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";  
+    }
+    snowtimer=setTimeout("snowIE_NS6()", 10);
+  }
+
+	function hidesnow(){
+		if (window.snowtimer) clearTimeout(snowtimer)
+		for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+	}
+		
+
+if (ie4up||ns6up){
+    snowIE_NS6();
+		if (hidesnowtime>0)
+		setTimeout("hidesnow()", hidesnowtime*1000)
+		}
+
+</script>
+	<div id="assignment">
+		<a href="homework/hw5.zip"><div id="assignment1">Homework 5</div></a>
+		<a href="https://docs.google.com/forms/d/1sd-7tI1aoVqFE9lG5WsE_9PRuz9YgIRRrKq6TqABb2o/viewform" target="_blank"><div id="assignment2">Group Project Peer Evaluation</div></a>
+		<a href="https://docs.google.com/forms/d/166grWDooKXMnshV1bdzJR3ITv6WEOBxYKh-c5J1ynLw/viewform" target="_blank"><div id="assignment3">Group Project Community Votes</div></a>
+	</div>
+	<div id="viewport">
+		<div id="cover_container">
+			<div id="cover">
+				<div id="cover_menu_container">
+					<div id="cover_menu">
+						<div id="cover_menu_back"></div>
+						<div id="cover_menu_icon"><img class="img_scaled" src="assets/icons/menu.svg" /></div>
+						<div id="cover_menu_caption">Menu</div>
+						<div id="cover_menu_list">
+							<a href="index.html"><div class="cover_menu_item">
+								<div class="cover_menu_item_icon"><img class="img_scaled" src="assets/icons/about_light.svg" /></div>
+								<div class="cover_menu_item_caption">About</div>
+								<div class="clear"></div>
+							</div></a>
+							<a href="lectures.html"><div class="cover_menu_item">
+								<div class="cover_menu_item_icon"><img class="img_scaled" src="assets/icons/lecture.svg" /></div>
+								<div class="cover_menu_item_caption">Lectures</div>
+								<div class="clear"></div>
+							</div></a>
+							<div class="gradebook cover_menu_item">
+								<div class="cover_menu_item_icon"><img class="img_scaled" src="assets/icons/check.svg" /></div>
+								<div class="cover_menu_item_caption">Gradebook</div>
+								<div class="clear"></div>
+							</div>
+							<a href="https://piazza.com/class/hlg849rjzm76ca"><div class="cover_menu_item">
+								<div class="cover_menu_item_icon"><img class="img_scaled" src="assets/icons/question.svg" /></div>
+								<div class="cover_menu_item_caption">Piazza</div>
+								<div class="clear"></div>
+							</div></a>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="cover_login" style="display: none;">
+					<div id="cover_login_icon"><img class="img_scaled" src="assets/icons/login.svg" /></div>
+					<div id="cover_login_caption">Login</div>
+					<div class="clear"></div>
+				</div>
+				<div id="cover_content_container">
+					<div id="cover_content">
+						<div id="cover_title">Web Design DeCal</div>
+						<div id="cover_subtitle">Design Meets Programming.</div>
+						<div id="cover_action">
+							<div id="cover_action_caption">Week 1 Check-in</div>
+							<div id="cover_action_icon"><img class="img_scaled" src="assets/icons/apply.svg" /></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="nav_menu">
+				<div id="nav_menu_icon"><img class="img_scaled" src="assets/icons/menu_dark.svg" /></div>
+				<div id="nav_menu_caption">Menu</div>
+				<div id="nav_menu_popover">
+					<div id="nav_menu_arrow"></div>
+					<div id="nav_menu_list">
+						<a href="index.html>"><div class="nav_menu_item">
+							<div class="nav_menu_item_icon"><img class="img_scaled" src="assets/icons/about.svg" /></div>
+							<div class="nav_menu_item_caption">About</div>
+							<div class="clear"></div>
+						</div></a>
+						<a href="lectures.html"><div class="nav_menu_item">
+							<div class="nav_menu_item_icon"><img class="img_scaled" src="assets/icons/lecture_dark.svg" /></div>
+							<div class="nav_menu_item_caption">Lectures</div>
+							<div class="clear"></div>
+						</div></a>
+						<div class="gradebook nav_menu_item">
+							<div class="nav_menu_item_icon"><img class="img_scaled" src="assets/icons/check_dark.svg" /></div>
+							<div class="nav_menu_item_caption">Gradebook</div>
+							<div class="clear"></div>
+						</div>
+						<a href="https://piazza.com/class/hlg849rjzm76ca"><div class="nav_menu_item">
+							<div class="nav_menu_item_icon"><img class="img_scaled" src="assets/icons/question_dark.svg" /></div>
+							<div class="nav_menu_item_caption">Piazza</div>
+							<div class="clear"></div>
+						</div></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="nav_content">
+				<div id="nav_logo"><img class="img_scaled" src="assets/icons/logo.svg" /></div>
+				<div id="nav_title">Web Design DeCal</div>
+				<div id="nav_items">
+					<div id="nav_active"></div>
+					<div id="nav_about" class="nav_item">
+						<div class="nav_item_icon"><img class="img_scaled" src="assets/icons/about.svg" /></div>
+						<div class="nav_item_caption">About Class</div>
+						<div class="clear"></div>
+					</div>
+					<div id="nav_curriculum" class="nav_item">
+						<div class="nav_item_icon"><img class="img_scaled" src="assets/icons/book.svg" /></div>
+						<div class="nav_item_caption">Curriculum</div>
+						<div class="clear"></div>
+					</div>
+					<div id="nav_schedule" class="nav_item">
+						<div class="nav_item_icon"><img class="img_scaled" src="assets/icons/calendar.svg" /></div>
+						<div class="nav_item_caption">Schedule</div>
+						<div class="clear"></div>
+					</div>
+					<div id="nav_instructors" class="nav_item">
+						<div class="nav_item_icon"><img class="img_scaled" src="assets/icons/person.svg" /></div>
+						<div class="nav_item_caption">Instructors</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="about_main_container">
+				<div id="about_main" class="about_item">
+					<div class="about_main_hero">Build your own website. A sexy one.</div>
+					<div class="about_main_caption">Web Design DeCal is a 2-unit DeCal for students who want to make a beautiful website.</div>
+					<div class="about_main_description"><p>Students will be introduced to various design philosophies in web design, including spacing, color, and positioning, which are essential to designing a beautiful and intuitive websites. We will also cover modern design trends like responsive design, flat UI, and skeumorphism. Using these philosophies, students will learn how to make a website using HTML 5 and CSS 3. We will cover Javascript and JQuery at the end of the course to make dynamic elements.</p>
+					<p>It is important to note that this course is a design only course - meaning we will not cover the server-side details like Django and PHP. By the end of the course, you will be able to design a website like those featured on Siteinspire. (http://www.siteinspire.com)</p></div>
+				</div>
+			</div>
+			<div id="about_logistics">
+				<div id="about_logistics_content">
+					<div class="about_logistics_item">
+						<div class="about_logistics_icon"><img class="img_scaled" src="assets/icons/workload.svg" /></div>
+						<div class="about_logistics_title">Workload</div>
+						<div class="about_logistics_item_content">2 Units</div>
+					</div>
+					<div class="about_logistics_item">
+						<div class="about_logistics_icon"><img class="img_scaled" src="assets/icons/time.svg" /></div>
+						<div class="about_logistics_title">Time</div>
+						<div class="about_logistics_item_content">THU 7-9P</div>
+					</div>
+					<div class="about_logistics_item" style="margin: 0px;">
+						<div class="about_logistics_icon"><img class="img_scaled" src="assets/icons/location.svg" /></div>
+						<div class="about_logistics_title">Location</div>
+						<div class="about_logistics_item_content">60 Evans</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div id="about_curriculum" class="about_item_container">
+				<div class="about_curriculum_item" style="background: #de6868;">
+					<div class="about_curriculum_container">
+						<div class="about_curriculum_thumbnail"><img class="img_scaled" src="assets/thumbnails/design.png" /></div>
+						<div class="about_curriculum_content">
+							<div class="about_curriculum_title">Design Section</div>
+							<div class="about_curriculum_description"><p>In Design section, we will spend a lot of time looking at other well-designed websites, notably those featured on Siteinspire. We will start each class with a website of the day. Students are encouraged to suggest their own website of the day.</p><p>We will then spend about a quarter of the class time on the topic of the day. After an introduction to the topic, we will spend a half of the class on Case Study, looking at other websites that demonstrates the key principle covered in class.</p></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="about_curriculum_item" style="background: #1ABC9C;">
+					<div class="about_curriculum_container">
+						<div class="about_curriculum_thumbnail" style="right: 0px; top: -57px;"><img class="img_scaled" src="assets/thumbnails/programming.png" /></div>
+						<div class="about_curriculum_content" style="float: left; text-align: right; padding-top: 15px;">
+							<div class="about_curriculum_title">Programming Section</div>
+							<div class="about_curriculum_description"><p>In Programming section, students will learn how to use the theory that they have learned in a real application by learning web design techniques that involve the theory. For example, students learn spacing in week 2, and they will learn how to use spacing in CSS through CSS box models.</p><p>Students will then apply what they have learned in their final project, where students create a website of their choice, using the key principles learned in class. A key takeaway from this class is to develop one’s own design style, not just imitating others. Final project will play a instrumental role in this process.</p></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="about_curriculum_evaluation">
+					<div class="about_curriculum_evaluation_container">
+						<div class="about_curriculum_evaluation_title">Evaluation</div>
+						<div class="about_curriculum_evaluation_description">This class is evaluated on a Pass/Non-Pass basis. 70 or above is a P, and below 70 is a NP. You will lose 5 pts for each unexcused absence.</div>
+						<div id="about_curriculum_evaluation_content">	
+							<div class="about_curriculum_evalutaion_bar">
+							<div class="about_curriculum_evaluation_item about_curriculum_evaluation_item20" style="background: #de6868;">20%</div>
+							<div class="about_curriculum_evaluation_item about_curriculum_evaluation_item20" style="background: #1ABC9C;">20%</div>
+							<div class="about_curriculum_evaluation_item about_curriculum_evaluation_item30" style="background: #5485bb;">30%</div>
+							<div class="about_curriculum_evaluation_item about_curriculum_evaluation_item30" style="background: #9b59b6;">30%</div>
+							<div class="clear"></div>
+						</div>
+							<div id="about_curriculum_evaluation_attendance" class="about_curriculum_evaluation_caption">
+							<div class="about_curriculum_evaluation_caption_text">Attendance</div>
+							<div class="about_curriculum_evaluation_caption_arrow"></div>
+						</div>
+							<div id="about_curriculum_evaluation_homework" class="about_curriculum_evaluation_caption">
+							<div class="about_curriculum_evaluation_caption_arrow"></div>
+							<div class="about_curriculum_evaluation_caption_text">Homework</div>
+						</div>
+							<div id="about_curriculum_evaluation_groupproj" class="about_curriculum_evaluation_caption">
+							<div class="about_curriculum_evaluation_caption_text">Group Project</div>
+							<div class="about_curriculum_evaluation_caption_arrow"></div>
+						</div>
+							<div id="about_curriculum_evaluation_finalproj" class="about_curriculum_evaluation_caption">
+							<div class="about_curriculum_evaluation_caption_arrow"></div>
+							<div class="about_curriculum_evaluation_caption_text">Final Project</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="about_schedule" class="about_item_container">
+				<div class="about_item">
+					<div id="schedule_title">Lecture Schedule</div>
+					<div id="schedule_timeline">
+						<div id="schedule_timeline_head">SP14</div>
+						<div id="schedule_timeline_spine"></div>
+						<div id="schedule_week1" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 1 | February 6</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Introduction and Design Cycle</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">HTML Basics</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week2" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 2 | February 13</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Web Inspector and Emphasis</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">HTML Basics II</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week3" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 3 | February 20</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Spacing</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">CSS Box Model</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week4" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 4 | February 22</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Typography and Images</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">More CSS</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week5" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 5 | March 6</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Positioning</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">CSS Positions and Floats</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week6" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 6 | March 13</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Color</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">Javascript Basics</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week7" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 7 | March 20</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">User Experience</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">Introduction to JQuery</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week8" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 8 | April 3</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Group Project Presentations</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">Group Project Presentations</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week9" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 9 | April 10</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Responsive Design</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">More JQuery & DOM Traversals</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week10" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 10 | April 17</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Flat UI and Skeuomorphism</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">AJAX and APIs</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week11" class="schedule_item schedule_item_left">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_line"></div>
+							<div class="schedule_item_dot"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 11 | April 24</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Extra Topic</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">Extra Topic</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_week12" class="schedule_item schedule_item_right">
+						<div class="schedule_item_spine">
+							<div class="schedule_item_dot"></div>
+							<div class="schedule_item_line"></div>
+						</div>
+						<div class="schedule_item_content">
+							<div class="schedule_date">Week 12 | May 1</div>
+							<div class="schedule_section schedule_section_design">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/design.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Design Section</div>
+									<div class="schedule_section_title">Final Project Presentations</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="schedule_section schedule_section_programming">
+								<div class="schedule_section_thumbnail"><img class="img_scaled" src="assets/icons/code.svg" /></div>
+								<div class="schedule_section_info">
+									<div class="schedule_section_caption">Programming Section</div>
+									<div class="schedule_section_title">Final Project Presentations</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+						<div id="schedule_timeline_foot"></div>
+					</div>
+				</div>
+			</div>
+			<div id="about_instructors" class="about_item_container">
+				<div class="about_item">
+					<div id="about_instructors_title">Instructors</div>
+					<div id="about_instructors_subheading">We are Cal students passionate about web design who want to share the passion with others.</div>
+					<div class="about_instructors_item">
+						<div class="about_instructors_info">
+							<div class="about_instructors_name">Shawn Park</div>
+							<div class="about_instructors_description">I am Shawn Park, a UI Designer and an aspiring entrepreneur studying at UC Berkeley. Born in Korea, I value simple, clean design with an emphasis on typography and ample spacing. I am currently working with multiple clients as well as pursuing a startup of own. Aside from design, I spend my time playing League, listening to K-pop, and contemplating. I am open to exploring more opportunities and meeting new people, so let me know if you want to meet!</div>
+							<div class="clear"></div>
+						</div>
+						<div class="about_instructors_thumbnail"><img class="img_scaled_wh" src="assets/thumbnails/shawn.jpg" /></div>
+						<a href="mailto:roka371@gmail.com"><div class="about_instructors_email"><img class="img_scaled" src="assets/icons/mail.svg" /></div></a>
+						<a href="http://www.designbyroka.com"><div class="about_instructors_website"><img class="img_scaled" src="assets/icons/website.svg" /></div></a>
+					</div>
+					<div class="about_instructors_item">
+						<div class="about_instructors_info">
+							<div class="about_instructors_name">Jeff Zhan</div>
+							<div class="about_instructors_description">I am a 4th year EECS major at UC Berkeley. I am the co-founder of online resume platform Clover ink and was Web Development Intern for TubeMogul in Summer 2013. I have been involved in the arts since he was a kid, having taken art classes at the Columbus College of Art & Design for several years and doing freelance Graphic Design work in college. Aside from art and web development, I love traveling the world, playing music, playing video games, and enjoying the time with family and friends.</div>
+							<div class="clear"></div>
+						</div>
+						<div class="about_instructors_thumbnail"><img class="img_scaled_wh" src="assets/thumbnails/jeff.jpg" /></div>
+						<a href="mailto:jzhan2010@gmail.com"><div class="about_instructors_email"><img class="img_scaled" src="assets/icons/mail.svg" /></div></a>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div id="about_disclaimer">
+				<div class="about_item">Application for Spring 2014 is now closed. Auditing is welcomed, though!</div>
+			</div>
+			<div id="about_apply">
+				<div class="about_item">
+					<div id="about_apply_caption">Have questions?</div>
+					<a href="mailto:roka371@gmail.com"><div id="about_apply_action">
+						<div id="about_apply_action_caption">Contact Us</div>
+						<div id="about_apply_action_icon"><img class="img_scaled" src="assets/icons/mail_light.svg" /></div>
+					</div>
+					<div class="clear"></div></a>
+				</div>
+			</div>
+			<div id="about_footer">
+				<div class="about_item">
+					<div id="about_footer_logo"><img class="img_scaled" src="assets/icons/logo_dark.svg" /></div>
+					<div id="about_footer_title">Web Design DeCal</div>
+					<div id="about_footer_endnote">Taught with lots of Caffeine and Love at UC Berkeley.</div>
+					<div id="about_footer_copyright">Website design by Shawn Park.</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal">
+		<div id="modal_overlay"></div>
+		<div id="notification_gradebook" class="modal_notification_container">
+			<div class="modal_notification">
+				<div class="modal_notification_message">Gradebook will be available for students next semester!</div>
+				<div class="modal_notification_dismiss">Okay</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="notification_showcase" class="modal_notification_container" style="background: #1ABC9C">
+			<div class="modal_notification">
+				<div class="modal_notification_message">Showcase of Fall 2013 students will be available on December!</div>
+				<div class="modal_notification_dismiss">Okay</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
